@@ -1,0 +1,86 @@
+* { box-sizing: border-box; }
+:root {
+  --green: #15803d;
+  --bg: #f4f7f5;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+body { margin: 0; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { margin: 0 0 0.5rem; }
+
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+.header {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1rem 1.5rem; background: #fff; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.logo { font-weight: 800; font-size: 1.25rem; color: var(--green); }
+.nav { display: flex; gap: 1rem; }
+.nav a { padding: 0.4rem 0.75rem; border-radius: 8px; color: var(--muted); font-weight: 600; }
+.nav a.active { background: #dcfce7; color: var(--green); }
+.badge {
+  margin-left: 0.4rem; background: var(--green); color: #fff; border-radius: 999px;
+  padding: 0 0.45rem; font-size: 0.75rem;
+}
+.main { flex: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+.footer { text-align: center; padding: 1.5rem; color: var(--muted); font-size: 0.9rem; }
+
+.hero { padding: 2rem 0 1.5rem; }
+.hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+.hero p, .muted { color: var(--muted); margin: 0.25rem 0; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.25rem; }
+.card {
+  background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+.card-cover { height: 120px; display: grid; place-items: center; font-size: 3rem; }
+.card-body { padding: 1rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.6rem 0; }
+.tag { background: #f1f5f9; border-radius: 999px; padding: 0.2rem 0.6rem; font-size: 0.8rem; }
+.price { font-weight: 700; color: var(--green); margin: 0.25rem 0; }
+
+.back { display: inline-block; margin-bottom: 1rem; color: var(--muted); }
+.field-header { color: #fff; border-radius: 14px; padding: 2rem 1.5rem; margin-bottom: 1.25rem; }
+.field-header p { margin: 0; opacity: 0.9; }
+.field-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 1.25rem; align-items: start; }
+@media (max-width: 760px) { .field-layout { grid-template-columns: 1fr; } }
+.panel { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; }
+.info { list-style: none; padding: 0; margin: 0 0 0.5rem; line-height: 1.9; }
+
+form label, .label { display: block; font-weight: 600; font-size: 0.9rem; margin: 0.9rem 0 0.35rem; }
+form input, form select {
+  display: block; width: 100%; margin-top: 0.35rem; padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border); border-radius: 8px; font: inherit;
+}
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 0.4rem; }
+.slot {
+  padding: 0.5rem 0; border: 1px solid var(--border); border-radius: 8px;
+  background: #fff; cursor: pointer; font: inherit;
+}
+.slot:hover:not(:disabled) { border-color: var(--green); }
+.slot.active { background: var(--green); border-color: var(--green); color: #fff; }
+.slot:disabled { background: #f1f5f9; color: #cbd5e1; cursor: not-allowed; text-decoration: line-through; }
+.summary { margin: 1rem 0 0; }
+.error { color: #dc2626; margin: 0.75rem 0 0; }
+
+.btn {
+  display: inline-block; margin-top: 1rem; padding: 0.7rem 1.25rem; border: none; border-radius: 10px;
+  background: var(--green); color: #fff; font: inherit; font-weight: 700; cursor: pointer;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn-outline { background: #fff; color: #dc2626; border: 1px solid #fecaca; margin-top: 0.5rem; }
+
+.orders { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+.order {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.25rem;
+}
+.order-right { text-align: right; }
+.empty { text-align: center; padding: 4rem 1rem; }
